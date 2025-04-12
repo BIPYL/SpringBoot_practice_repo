@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+ 여기에 멤버리스트 출력
+    <h1>Member List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="member:${memList}">
+                <td th:text="${member.id}"></td>
+                <td th:text="${member.username}"></td>
+                <td th:text="${member.name}"></td>
+                <td th:text="${member.role}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
