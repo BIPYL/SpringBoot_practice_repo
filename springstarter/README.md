@@ -1,4 +1,4 @@
-# Spring Starter 실습 프로젝트1
+# Spring Starter 실습 프로젝트1 
 
 📚 **주제**: 도서 정보 관리 시스템 (Spring Boot 기반)
 
