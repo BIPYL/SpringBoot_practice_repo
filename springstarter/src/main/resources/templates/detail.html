@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Thymeleaf Bootstrap Template</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+<!-- Header Section -->
+<div th:replace="fragments/header :: header"></div>
+
+<!-- Main Content Section --> <!-- 상세보기 레이아웃 -->
+<div class="container my-5">
+  <div class ="card">
+    <div class = "card-header">
+      <h2>상세보기</h2>
+
+    </div>
+    <div class = "card-body">
+      <div class="row">
+        <div class="col-8">
+          <h3 th:text="${book.subject}"></h3>
+          <h6 th:text="${book.author}"></h6>
+          <p>
+            Price: <span th:text="${book.price}"></span><br/>
+            Page: <span th:text="${book.page}"></span><br/>
+            Created At: <span th:text="${book.createdAt}"></span>
+          </p>
+          <p>추가적인 설명을 출력하세요!</p>
+        </div>
+        <div class="col-4">
+          <img th:src="@{/images/book.jpg}" class = "img-fluid" alt = "Book Image">
+
+
+
+        </div>
+      </div>
+    </div>
+    <!-- 상세보기 끝 -->
+
+
+
+
+  <!--리뷰목록 시작-->
+  <div class = "card">
+  <!--
+      관계도 정리
+      card: 카드의 전체 틀 (외부 박스)
+      card-header: 카드의 상단 (제목, 부제목, 아이콘 등)
+      card-body: 카드의 본문 (실제 내용, 텍스트, 리스트 등)
+      list-group: 여러 항목들을 그룹화하는 역할
+      list-group-item: 각 항목을 나타내는 개별 아이템 (리스트 아이템)
+  -->
+    <!-- card 헤더-->
+    <div class = "card-header">
+      <h2>리뷰목록</h2>
+      <span class ="badge badge-secondary">
+        <span th:text="${#lists.size(book.reviews)}"></span>개,
+        평점: <span th:text="${averageRating}"></span>/5
+      </span>
+    </div>
+
+    <!-- card 바디-->
+    <div class = "card-body">
+      <div th:if ="${book.reviews !=null and #lists.size(book.reviews)>0}">
+        <div class = "list-group" th:each="reviews:${book.reviews}">
+          <div class ="list-group-item">
+            <p th:text="${reviews.content}">리뷰내용</p>
+            <small th:text = "${reviews.createdAt}">작성일자</small>
+            <p><small>평점:<span th:text = "${reviews.rating}"></span>/5</small></p>
+            <!-- 삭제버튼-->
+            <form th:action="@{/deleteReview}" method="post" style="display:inline;">
+              <input type="hidden" name="review_id" th:value="${reviews.id}">
+              <input type="hidden" name="book_id" th:value="${reviews.book.id}">
+              <button type="submit" class="btn btn-danger btn-sm">삭제</button>
+            </form>
+
+
+
+          </div>
+        </div>
+      </div>
+
+      <div th:if ="${book.reviews ==null and #lists.size(book.reviews)==0}">
+        <p>작성된 리뷰가 없습니다.</p>
+      </div>
+    </div>
+    <!-- 리뷰목록 끝-->
+
+
+    <!-- 리뷰작성 -->
+    <div class="card">
+      <div class = "card-header">
+        <h2> 리뷰 및 평점 쓰기</h2>
+        </div>
+      <div class = "card-body">
+        <form th:action="@{/register}" method ="post">
+          <input type = "hidden" name = "book_id" th:value="${book.id}"> <!-- 히든태그 방식으로 값 전달-->
+          <div class = "form-group">
+            <label for = "content"> 리뷰내용</label>
+            <textarea class = "form-control" id = "content" name = "content" rows = "3" required></textarea>
+          </div>
+          <div class = "form-group">
+            <label for="rating">평점</label>
+            <select class = "form-control" id = "rating" name = "rating" required>
+              <option value="1">1-Poor</option>
+              <option value="2">2-Fair</option>
+              <option value="3">3-Good</option>
+              <option value="4">4-Very Good</option>
+              <option value="5">5-Excellent</option>
+
+            </select>
+          </div>
+          <button type = "submit" class = "btn btn-secondary btn-sm">리뷰등록</button>
+          <!-- submit은 폼을 action에 지정된 경로로 book_id 제출함-> book_id는 book으로 , content, rating ->review로 가면됨.  -->
+
+        </form>
+      </div>
+    </div>
+
+
+
+  <!-- 리스트로 가기 버튼 -->
+  <div class = "text-right mt-5">
+    <a href="/" class = "btn btn-primary btn-sm"> 리스트로 이동</a>
+  </div>
+</div>
+
+<!-- Footer Section -->
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
