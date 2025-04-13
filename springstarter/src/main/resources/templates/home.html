@@ -8,7 +8,8 @@
 </head>
 <body>
 <!-- Header Section -->
-<div <!-- Main Content Section -->
+<div th:replace="fragments//header :: header"></div>
+<!-- Main Content Section -->
 <div class="container my-5">
     <div class="container">
         <h1 class="my-4">Books List</h1>
@@ -23,7 +24,7 @@
                             Pages: <span th:text="${book.page}">200</span><br>
                             Created At: <span th:text="${book.createdAt}">2024-08-04</span>
                         </p>
-                        <a href="#" class="btn btn-primary">View Details</a>
+                        <a th:href="@{/detail/{id}(id=${book.id})}" class="btn btn-primary btn-sm">View Details</a>
                     </div>
                 </div>
             </div>
