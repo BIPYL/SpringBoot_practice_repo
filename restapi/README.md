@@ -36,6 +36,7 @@ src/main/java/com/example/rest
 └── RestApplication # 메인 실행 클래스
 
 
+
 🧠 학습 포인트
 ResponseEntity 를 통해 응답 코드 + JSON 데이터 처리
 DTO 계층 설계 (Payload, View 구분)
