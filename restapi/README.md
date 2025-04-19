@@ -1,4 +1,4 @@
-# 📘 Spring Boot Book REST API 
+# 📘 Spring Boot Book REST API  
 
 📌 소개
 이 프로젝트는 Spring Boot 기반으로 도서(Book) 정보를 REST API 형식으로 CRUD 처리하는 실습용 애플리케이션입니다.
