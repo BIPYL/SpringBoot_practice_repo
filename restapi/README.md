@@ -39,17 +39,19 @@ src/main/java/com/example/rest
 
 
 🧠 학습 포인트
-ResponseEntity 를 통해 응답 코드 + JSON 데이터 처리
-DTO 계층 설계 (Payload, View 구분)
-Optional과 조건 분기 로직
-RESTful URL 설계
-Swagger 문서 자동화 적용
+
+- ResponseEntity 를 통해 응답 코드 + JSON 데이터 처리
+- DTO 계층 설계 (Payload, View 구분)
+- Optional과 조건 분기 로직
+- RESTful URL 설계
+- Swagger 문서 자동화 적용
+
 
 📌 향후 보완할 점
-전역 예외 처리 핸들러 추가
-H2 or MySQL DB 연결 테스트
-테스트 코드 (JUnit, MockMvc) 작성
-ResponseEntity에 통일된 응답 포맷 적용 (ApiResponse<T> 등)
+- 전역 예외 처리 핸들러 추가
+- H2 or MySQL DB 연결 테스트
+- 테스트 코드 (JUnit, MockMvc) 작성
+- ResponseEntity에 통일된 응답 포맷 적용 (ApiResponse<T> 등)
 
 요약: Spring REST API의 핵심 개념 구현, 실무에 필요한 계층 구조 설계, JSON 요청/응답 처리 방식, 예외 처리 흐름 등을 학습한 결과물입니다.
 Swagger 적용으로 외부 사용자를 위한 문서화까지 완료.
