@@ -28,13 +28,14 @@ Swagger를 통한 API 명세 문서 자동화, DTO를 활용한 계층 분리, �
 ---
 
 📁 프로젝트 구조
+<pre>
 src/main/java/com/example/rest
 ├── entity          # Book, DTO 클래스들
 ├── repository      # BookRepository
 ├── service         # BookService
 ├── restcontroller  # REST API Controller
 └── RestApplication # 메인 실행 클래스
-
+</pre>
 
 
 🧠 학습 포인트
