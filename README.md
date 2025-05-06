@@ -25,6 +25,7 @@
 |--------|------------|------|
 | springstarter | 도서 정보를 출력하는 기본 MVC 흐름 구현 | H2 DB 사용, /home 경로 연결, 초기 데이터 자동 삽입 |
 | `book-rest-api` | REST API 기반 Book CRUD 구현 | `@RestController`, DTO 설계, Swagger 적용, ResponseEntity 활용 |
+| FinalProject | 자동차 예약 서비스 CRUD 구현 | `@RestController`, DTO 설계, Postman 활용 |
 
 > 📌 실습이 추가될 때마다 위 목록은 업데이트될 예정입니다.
 
